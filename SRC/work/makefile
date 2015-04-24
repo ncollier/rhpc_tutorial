@@ -33,11 +33,10 @@ clean: clean_compiled_files clean_output_files remove_subdirectories
 	rm -f ./props/*.props
 	rm -f ./include/*.h
 
-
 .PHONY: RepastHPC_Demo_00
 RepastHPC_Demo_00: clean_compiled_files
 	$(MPICXX) $(REPAST_HPC_DEFINES) $(BOOST_INCLUDE) $(REPAST_HPC_INCLUDE) -c Demo_00.cpp -o Demo_00.o
-	$(MPICXX) $(BOOST_LIB_DIR) $(REPAST_HPC_LIB_DIR) -o Demo_00.exe Demo_00.o $(REPAST_HPC_LIB) $(BOOST_LIBS)
+	$(MPICXX) $(BOOST_LIB_DIR) $(REPAST_HPC_LIB_DIR) $(NETCDF_LIB_DIR) -o Demo_00.exe Demo_00.o $(REPAST_HPC_LIB) $(BOOST_LIBS) $(NETCDF_LIB)
 
 .PHONY: RepastHPC_Demo_00_Step_01
 RepastHPC_Demo_00_Step_01 : copy_RepastHPC_Demo_00_Step_01 RepastHPC_Demo_00
@@ -48,7 +47,7 @@ copy_RepastHPC_Demo_00_Step_01 : clean
 
 .PHONY: compare_RepastHPC_Demo_00_Step_01
 compare_RepastHPC_Demo_00_Step_01:
-	@echo "Comparing Demo_00/Step_01/Demo_00.cpp…"
+	@echo "Comparing Demo_00/Step_01/Demo_00.cpp …"
 	-@diff ../RepastHPC/Demo_00/Step_01/Demo_00.cpp Demo_00.cpp
 
 

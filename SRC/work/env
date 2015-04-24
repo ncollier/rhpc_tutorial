@@ -5,12 +5,16 @@
 #
 #*******************************
 
-MPICXX=/usr/local/bin/mpicxx -std=c++11 
+MPICXX=/usr/bin/mpicxx -std=c++11 
 
-BOOST_INCLUDE=-I/Users/murphy/ext/boost_1.56/include/
-BOOST_LIB_DIR=-L/Users/murphy/ext/boost_1.56/lib/
-BOOST_LIBS=-lboost_mpi-mt-s -lboost_serialization-mt-s -lboost_system-mt-s -lboost_filesystem-mt-s
+BOOST_INCLUDE=-I/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/boost/boost_1.54/include
+BOOST_LIB_DIR=-L/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/boost/boost_1.54/lib
+BOOST_LIBS=-lboost_mpi-mt -lboost_serialization-mt -lboost_system-mt -lboost_filesystem-mt
 
-REPAST_HPC_INCLUDE=-I/Users/murphy/work/HWM/REPAST_HPC/
-REPAST_HPC_LIB_DIR=-L/Users/murphy/work/HWM/REPAST_HPC/lib
-REPAST_HPC_LIB=-lrepast_hpc_gcc
+REPAST_HPC_INCLUDE=-I/home/nick/Documents/repos/repast_hpc_for_course/out/rhpc/include
+REPAST_HPC_LIB_DIR=-L/home/nick/Documents/repos/repast_hpc_for_course/out/rhpc/lib
+REPAST_HPC_LIB=-lrepast_hpc-2.2-dev -lrelogo-2.2-dev
+
+NETCDF_INCLUDE=-I/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/NetCDF/include
+NETCDF_LIB_DIR=-L/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/NetCDF/lib
+NETCDF_LIB=-lnetcdf -lnetcdf_c++
