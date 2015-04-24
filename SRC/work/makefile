@@ -247,7 +247,7 @@ RepastHPC_Demo_01: clean_compiled_files
 	$(MPICXX) $(REPAST_HPC_DEFINES) $(BOOST_INCLUDE) $(REPAST_HPC_INCLUDE) -I./include -c ./src/Demo_01_Main.cpp -o ./objects/Demo_01_Main.o
 	$(MPICXX) $(REPAST_HPC_DEFINES) $(BOOST_INCLUDE) $(REPAST_HPC_INCLUDE) -I./include -c ./src/Demo_01_Model.cpp -o ./objects/Demo_01_Model.o
 	$(MPICXX) $(REPAST_HPC_DEFINES) $(BOOST_INCLUDE) $(REPAST_HPC_INCLUDE) -I./include -c ./src/Demo_01_Agent.cpp -o ./objects/Demo_01_Agent.o
-	$(MPICXX) $(BOOST_LIB_DIR) $(REPAST_HPC_LIB_DIR) -o ./bin/Demo_01.exe  ./objects/Demo_01_Main.o ./objects/Demo_01_Model.o ./objects/Demo_01_Agent.o $(REPAST_HPC_LIB) $(BOOST_LIBS)
+	$(MPICXX) $(BOOST_LIB_DIR) $(REPAST_HPC_LIB_DIR)  $(NETCDF_LIB_DIR) -o ./bin/Demo_01.exe  ./objects/Demo_01_Main.o ./objects/Demo_01_Model.o ./objects/Demo_01_Agent.o $(REPAST_HPC_LIB) $(NETCDF_LIB) $(BOOST_LIBS)
 
 
 .PHONY: RepastHPC_Demo_01_Step_00
@@ -630,7 +630,7 @@ RepastHPC_Demo_02: clean_compiled_files
 	$(MPICXX) $(REPAST_HPC_DEFINES) $(BOOST_INCLUDE) $(REPAST_HPC_INCLUDE) -I./include -c ./src/Demo_02_Main.cpp -o ./objects/Demo_02_Main.o
 	$(MPICXX) $(REPAST_HPC_DEFINES) $(BOOST_INCLUDE) $(REPAST_HPC_INCLUDE) -I./include -c ./src/Demo_02_Model.cpp -o ./objects/Demo_02_Model.o
 	$(MPICXX) $(REPAST_HPC_DEFINES) $(BOOST_INCLUDE) $(REPAST_HPC_INCLUDE) -I./include -c ./src/Demo_02_Agent.cpp -o ./objects/Demo_02_Agent.o
-	$(MPICXX) $(BOOST_LIB_DIR) $(REPAST_HPC_LIB_DIR) -o ./bin/Demo_02.exe  ./objects/Demo_02_Main.o ./objects/Demo_02_Model.o ./objects/Demo_02_Agent.o $(REPAST_HPC_LIB) $(BOOST_LIBS)
+	$(MPICXX) $(BOOST_LIB_DIR) $(REPAST_HPC_LIB_DIR) $(NETCDF_LIB_DIR) -o ./bin/Demo_02.exe  ./objects/Demo_02_Main.o ./objects/Demo_02_Model.o ./objects/Demo_02_Agent.o $(REPAST_HPC_LIB) $(NETCDF_LIB) $(BOOST_LIBS)
 
 
 

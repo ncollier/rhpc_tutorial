@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <vector>
 #include <boost/mpi.hpp>
-#include "AgentId.h"
+#include "repast_hpc/AgentId.h"
 #include "repast_hpc/RepastProcess.h"
 #include "repast_hpc/Utilities.h"
 #include "repast_hpc/Properties.h"
