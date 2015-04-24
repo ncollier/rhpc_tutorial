@@ -5,7 +5,7 @@
 
 #include <boost/mpi.hpp>
 #include "Schedule.h"
-#include "Properties.h"
+#include "repast_hpc/Properties.h"
 #include "SharedContext.h"
 #include "AgentRequest.h"
 

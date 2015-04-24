@@ -4,9 +4,9 @@
 #include <vector>
 #include <boost/mpi.hpp>
 #include "AgentId.h"
-#include "RepastProcess.h"
-#include "Utilities.h"
-#include "Properties.h"
+#include "repast_hpc/RepastProcess.h"
+#include "repast_hpc/Utilities.h"
+#include "repast_hpc/Properties.h"
 #include "initialize_random.h"
 #include "SVDataSetBuilder.h"
 
