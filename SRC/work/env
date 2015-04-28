@@ -7,14 +7,23 @@
 
 MPICXX=/usr/bin/mpicxx -std=c++11 
 
-BOOST_INCLUDE=-I/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/boost/boost_1.54/include
-BOOST_LIB_DIR=-L/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/boost/boost_1.54/lib
-BOOST_LIBS=-lboost_mpi-mt -lboost_serialization-mt -lboost_system-mt -lboost_filesystem-mt
+BOOST_INCLUDE=
+#-I/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/boost/boost_1.54/include
+BOOST_LIB_DIR=
+#-L/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/boost/boost_1.54/lib
+BOOST_LIBS=
+#-lboost_mpi-mt -lboost_serialization-mt -lboost_system-mt -lboost_filesystem-mt
 
-REPAST_HPC_INCLUDE=-I/home/nick/Documents/repos/repast_hpc_for_course/out/rhpc/include
-REPAST_HPC_LIB_DIR=-L/home/nick/Documents/repos/repast_hpc_for_course/out/rhpc/lib
-REPAST_HPC_LIB=-lrepast_hpc-2.2-dev -lrelogo-2.2-dev
+REPAST_HPC_INCLUDE=
+#-I/home/nick/Documents/repos/repast_hpc_for_course/out/rhpc/include
+REPAST_HPC_LIB_DIR=
+#-L/home/nick/Documents/repos/repast_hpc_for_course/out/rhpc/lib
+REPAST_HPC_LIB=
+#-lrepast_hpc-2.2-dev -lrelogo-2.2-dev
 
-NETCDF_INCLUDE=-I/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/NetCDF/include
-NETCDF_LIB_DIR=-L/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/NetCDF/lib
-NETCDF_LIB=-lnetcdf -lnetcdf_c++
+NETCDF_INCLUDE=
+#-I/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/NetCDF/include
+NETCDF_LIB_DIR=
+#-L/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/NetCDF/lib
+NETCDF_LIB=
+#-lnetcdf -lnetcdf_c++
