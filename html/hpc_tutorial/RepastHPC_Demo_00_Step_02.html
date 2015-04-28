@@ -40,9 +40,7 @@ int main(int argc, char** argv){
     <p>Compile and link the code using:</p>
     <div class="code"><code><pre>make RepastHPC_Demo_00</pre></code></div>
     <p>Run the code using the same commands as in Step 01:
-    <div class="code"><code><pre>/usr/bin/local/mpirun -n 4 ./Demo_00.exe</pre></code></div>
-    <p>Or:</p>
-    <div class="code"><code><pre>qsub -A MyProject -n 4 -cwd /pvfs-surveyor/ -o Demo_00 -t 10 ./Demo_00.exe</pre></code></div>
+    <div class="code"><code><pre>qsub submit.sh Demo_00.exe </pre></code></div>
     <p>The output should look something like this:</p>
 <div class="code"><code><pre>
 Hello, world! I'm rank 0

@@ -31,46 +31,32 @@ int main(int argc, char** argv){
     <p>However, you will (probably) find that this code won't build: either it will compile but it won't link, or it won't compile at all. The reason is that although your mpi-enabled compiler knows where the standard mpi header files and libraries are, it doesn't (probably) know where the 'boost' libraries are. To get past this, we'll briefly go back to manually compiling and linking.</p>
     <p>First try basic compilation (using the two methods: Mac OS X Laptop and BG/P):</p>
 <div class="code"><code><pre>
-/usr/local/bin/mpicxx -c -o Demo_00.o Demo_00.cpp
+mpicxx -c -o Demo_00.o Demo_00.cpp
+</pre></code></div>
+   
+    <p>In the (likely) event that this fails, the reason is because the compiler can't find the newly included file, boost/mpi.hpp. Locate this on your computer; it should be in a location with all the other Boost header files. Provide the compiler a path to these by using the -I switch, as:</p>
+<div class="code"><code><pre>
+mpicxx -c I/shared/ucl/apps/boost/1.54.0/openmpi/gnu.4.6.3/include -o Demo_00.o Demo_00.cpp
 </pre></code></div>
     <p>or:</p>
-<div class="code"><code><pre>
-mpixlcxx -c -o Demo_00.o Demo_00.cpp
-</pre></code></div>
-    <p>In the (likely) event that these fail, the reason is because the compiler can't find the newly included file, boost/mpi.hpp. Locate this on your computer; it should be in a location with all the other Boost header files. Provide the compiler a path to these by using the -I switch, as:</p>
-<div class="code"><code><pre>
-/usr/local/bin/mpicxx -c -I/external_libraries/Boost_1.46_1/include/ -o Demo_00.o Demo_00.cpp
-</pre></code></div>
-    <p>or:</p>
-<div class="code"><code><pre>
-mpixlcxx -c -I/soft/apps/current/repasthpc-1.0.1/extra/boost/boost_1.48/include/ -o Demo_00.o Demo_00.cpp
-</pre></code></div>
+
     <p>When you have found the proper path, and compilation completes successfully, you must give the linker a similar instruction. In this case, it must be able to find the directory in which the boost libraries are found, and, separately, the names of the boost libraries for which it is looking. The directory is specified using a "-L" switch, while the libraries are specified using "-l" (lower-case L). One confusing part: the library files are probably named something like "libMyLibrary.a" or "libMyLibrary.so", but the -l switch omits the 'lib' and the '.a' (or other extension), so it will look like "-lMyLibrary". For the two cases used so far, the linking command looks like:
 <div class="code"><code><pre>
-/usr/local/bin/mpicxx -L/Users/murphy/ext/boost_1_46_1/stage/lib/ -o Demo_00.exe Demo_00.o -lboost_mpi-xgcc42-mt -lboost_serialization-xgcc42-mt -lboost_system-xgcc42-mt -lboost_filesystem-xgcc42-mt
+mpicxx -L/shared/ucl/apps/boost/1.54.0/openmpi/gnu.4.6.3/lib -o Demo_00.exe Demo_00.o -lboost_mpit -lboost_serialization -lboost_system -lboost_filesystem
 </pre></code></div>
-    <p>And on the BG/P:</p>
-<div class="code"><code><pre>
-mpixlcxx -L/soft/apps/current/repasthpc-1.0.1/extra/boost/boost_1.48/lib/ -o Demo_00.exe Demo_00.o -lboost_mpi-mt-1_48 -lboost_serialization-mt-1_48 -lboost_system-mt-1_48 -lboost_filesystem-mt-1_48
-</pre></code></div>
+   
 
     <div class="sidebar" id="DoesOrderMatter" onClick=toggleSidebar("DoesOrderMatter")><b>Does the order in which files to be linked are listed matter?</b></div>
     <div class="defHIDDEN" id="DoesOrderMatter_DEF" onClick=toggleSidebar("DoesOrderMatter")>The BG/P uses the 'XL' compiler from IBM; order matters. A file that needs a function from another file should be listed before the other file; functions are sought in files later in the list. When using the gcc compiler, it doesn't matter.</div>
 
 
-    <p>This is (obviously) cumbersome, so you can instead modify the 'env' file to include these definitions. For the Max OS case, the variables might be set like:</p>
-<div class="code"><code><pre>
-BOOST_INCLUDE=-I/Users/murphy/ext/boost_1_46_1/
-BOOST_LIB_DIR=-L/Users/murphy/ext/boost_1_46_1/stage/lib/
-BOOST_LIBS=-lboost_mpi-xgcc42-mt -lboost_serialization-xgcc42-mt -lboost_system-xgcc42-mt -lboost_filesystem-xgcc42-mt
+    <p>This is (obviously) cumbersome, so you can instead modify the 'env' file to include these definitions. 
+BOOST_INCLUDE=-I/shared/ucl/apps/boost/1.54.0/openmpi/gnu.4.6.3/include
+BOOST_LIB_DIR=-L/shared/ucl/apps/boost/1.54.0/openmpi/gnu.4.6.3/include
+BOOST_LIBS=-lboost_mpi -lboost_serialization -lboost_system -lboost_filesystem
 </pre></code></div>
 
-    <p>And on the BG/P:</p>
-<div class="code"><code><pre>
-BOOST_INCLUDE=-I/soft/apps/current/repasthpc-1.0.1/extra/boost/boost_1.48/include/
-BOOST_LIB_DIR=-L/soft/apps/current/repasthpc-1.0.1/extra/boost/boost_1.48/lib/
-BOOST_LIBS=-lboost_mpi-mt-1_48 -lboost_serialization-mt-1_48 -lboost_system-mt-1_48 -lboost_filesystem-mt-1_48
-</pre></code></div>
+   
     <p>Note the different names of the Boost libraries; these will vary by build and by various build options on your local machines.</p>
     <p>Once these values are set, cleaning and copying to Step 04 should allow you to use the single 'make' command, and Demo_00 will be built.
     
