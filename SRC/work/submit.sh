@@ -18,6 +18,7 @@
 # 5. Select the OpenMPI parallel environment and 6 processes.
 #$ -pe openmpi 4
 
+# 5.5 Set the project allocation
 #$ -P Training
 
 # 6. Set the working directory to somewhere in your scratch space.  This is
@@ -39,6 +40,4 @@ module load boost/1.54.0/openmpi/gnu.4.6.3
 module load repast-hpc/2.2-dev
 
 # 8. Run our MPI job.  GERun is a wrapper that launches MPI jobs on Legion  
-# This assumes the .props files have been copied to your working directory.
-#echo $1 $2 $3 $4
 gerun $1 $2 $3
