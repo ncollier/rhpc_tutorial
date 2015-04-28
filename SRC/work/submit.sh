@@ -16,7 +16,7 @@
 #$ -N RHPC-Tutorial-$USER
 
 # 5. Select the OpenMPI parallel environment and 6 processes.
-#$ -pe openmpi $1
+#$ -pe openmpi 2
 
 # 6. Set the working directory to somewhere in your scratch space.  This is
 # a necessary step with the upgraded software stack as compute nodes cannot

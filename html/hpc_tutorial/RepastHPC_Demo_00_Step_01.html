@@ -21,17 +21,18 @@ the '.cpp' file and make an object file ('.o') out of it.</p>
     <div class="defHIDDEN" id="WhatsAnObjectFile_DEF" onClick=toggleSidebar("WhatsAnObjectFile")>An object file is a file that contains the compiled code from a source file. This is very commonly only pieces of code, which can be treated as separate objects, and not the entire code needed to create a runnable program. "Linking" puts together pieces from multiple object files.</div>
 
     <p>To compile this you must first <em>find out what is the way to invoke your MPI-compatible compiler</em>. Often an MPI installation will provide a compiler 'wrapper' that invokes the correct compiler and uses the correct settings to make use of the MPI version that is installed on the specific machine. (Also, you may find that your system will cross-compile: that is, it will perform the compilation on one machine, but the code will be compiled so that it runs on a different machine. A special compiler 'wrapper' may be used for this.)</p>
-    <p>Here is an example but on a Mac OS X laptop with OpenMPI installed:</p>
-    <div class="code"><code><pre>/usr/local/bin/mpicxx -c -o Demo_00.o Demo_00.cpp</pre></code></div>
-    <p>Here is the same example  but as it was done on Argonne National Laboratory's Blue Gene/P login nodes:</p>
+    <p>Here is an example:</p>
+    <div class="code"><code><pre>mpicxx -c -o Demo_00.o Demo_00.cpp</pre></code></div>
+    <!--<p>Here is the same example  but as it was done on Argonne National Laboratory's Blue Gene/P login nodes:</p>
     <div class="code"><code><pre>mpixlcxx -c -o Demo_00.o Demo_00.cpp</pre></code></div>
-    <p>The 'mpixlcxx' (or 'mpicxx') command invokes the mpi-enabled compiler. The "-c" switch means that only compilation will take place, not linking (they are often done with one command, but we are dealing with them individually here). The "-o" option tells the compiler what to name the file it creates (we will use '.o' as the extension for object files). The final argument is the name of the file to be compiled.</p>
+	-->
+    <p>The 'mpicxx' command invokes the mpi-enabled compiler. The "-c" switch means that only compilation will take place, not linking (they are often done with one command, but we are dealing with them individually here). The "-o" option tells the compiler what to name the file it creates (we will use '.o' as the extension for object files). The final argument is the name of the file to be compiled.</p>
     <div class="sidebar" id="BGPRIP" onClick=toggleSidebar("BGPRIP")><b>Is the BlueGene/P still running?</b></div>
     <div class="defHIDDEN" id="BGPRIP_DEF" onClick=toggleSidebar("BGPRIP")>The BG/P was retired several years ago, but the examples here are still useful illustrations. The new computer at Argonne is a BlueGene/Q, and the commands are virtually identical.</div>
     <div class="sidebar" id="WhatsAnMPICompiler" onClick=toggleSidebar("WhatsAnMPICompiler")><b>What's an 'MPI Enabled Compiler'?</b></div>
     <div class="defHIDDEN" id="WhatsAnMPICompiler_DEF" onClick=toggleSidebar("WhatsAnMPICompiler")>It's a 'normal' compiler (probably one that you can invoke on your own) that is invoked with special commands and switches that tell it where to find mpi-related resources. These special commands are then 'wrapped' in a special name that acts as a shortcut, so all you have to do is type this single, simple name and it will compile using the properly installed MPI files and libraries.</div>
     <p>Next let's link this into an executable file. To do this, invoke the compiler (which is also used to link), but omit the '-c' option, provide a different name for the output file, and use the name of the object file as the input file:</p>
-    <div class="code"><code><pre>mpixlcxx -o Demo_00.exe Demo_00.o</pre></code></div>
+    <div class="code"><code><pre>mpicxx -o Demo_00.exe Demo_00.o</pre></code></div>
     <p>The output from this should be another file, Demo_00.exe. This is an executable file.</p>
     <p>Before going further, let's use these files to show how this tutorial and its supporting files should work. The Demo_00.cpp code you typed in should also be in the SRC/RepastHPC/Demo_00/Step_01 directory. You can compare your copy with the copy in that directory using 'diff', by typing:</p>
     <div class="code"><code><pre>make compare_RepastHPC_Demo_00_Step_01</pre></code></div>
