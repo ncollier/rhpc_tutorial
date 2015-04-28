@@ -24,7 +24,7 @@
 # a necessary step with the upgraded software stack as compute nodes cannot
 # write to $HOME.
 # Replace "<your_UCL_id>" with your UCL user ID :)
-# -wd /home/coursa0/Scratch/rhpc_tutorial/SRC/work
+#$ -wd /home/coursa0/Scratch/rhpc_tutorial/SRC/work
 
 # 7. Load the necessary modules
 module unload compilers mpi mkl
