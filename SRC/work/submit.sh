@@ -13,16 +13,18 @@
 #$ -l mem=1G
 
 # 4. Set the name of the job.
-#$ -N RHPC-Tutorial-$USER
+#$ -N RHPC-Tutorial
 
 # 5. Select the OpenMPI parallel environment and 6 processes.
 #$ -pe openmpi 2
+
+#$ -P Training
 
 # 6. Set the working directory to somewhere in your scratch space.  This is
 # a necessary step with the upgraded software stack as compute nodes cannot
 # write to $HOME.
 # Replace "<your_UCL_id>" with your UCL user ID :)
-#$ -wd $HOME/Scratch/rhpc_tutorial/SRC/work
+#$ -wd /home/coursa0/Scratch/rhpc_tutorial/SRC/work
 
 # 7. Load the necessary modules
 module unload compilers mpi mkl
