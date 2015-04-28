@@ -86,9 +86,7 @@ orlHellod!
 rld!
 </pre></code></div>
     <p>All of the processes are writing more or less simultaneously, so they may step on each other's toes. It is important to keep this in mind when considering all of the program structure and output in the remainder of this tutorial.</p>
-    <p>Other systems, especially those on which the code is being cross-compiled, will require a different way to run the program. On the Blue Gene/P at Argonne National Lab, compilation was performed on login nodes, while execution was performed on the 'compute' nodes; to execute code, it had to be submitted as a 'job', which was done like this:</p>
-<div class="code"><code><pre>qsub sumbit.sh Demo_00.exe</pre></code></div>
-    <p>The specifics of this command will vary from system to system (in the above example, the '-A MyProject' indicates the project that will be charged for the run, '-n 4' indicates that it should be run on four processes, '-cwd /pvfs-surveyor/' changes the working directory to a place where output can be written, '-o Demo_00' provides a file name for output, and '-t 10' specifies that the code should be allowed to run for no more than ten minutes before being shut down).</p>
+    <p>Other systems, especially those on which the code is being cross-compiled, will require a different way to run the program. On legion qsub typically takes a script, <div class="code"><code><pre>qsub submit.sh Demo_00.exe</pre></code></div>
     <p>For the remainder of this demo, when there is an example given of how to run the program, both the multi-process methods given here will be shown.</p>
     <h3>Setting the compiler variable in the 'env' file</h3>
     <p>We're not quite done compiling things manually, but we can now set the first variable in the 'env' file. Open the 'env' file and change the line that says:</p>

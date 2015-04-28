@@ -36,13 +36,13 @@ mpicxx -c -o Demo_00.o Demo_00.cpp
    
     <p>In the (likely) event that this fails, the reason is because the compiler can't find the newly included file, boost/mpi.hpp. Locate this on your computer; it should be in a location with all the other Boost header files. Provide the compiler a path to these by using the -I switch, as:</p>
 <div class="code"><code><pre>
-mpicxx -c I/shared/ucl/apps/boost/1.54.0/openmpi/gnu.4.6.3/include -o Demo_00.o Demo_00.cpp
+mpicxx -c -I/shared/ucl/apps/boost/1.54.0/openmpi/gnu.4.6.3/include -o Demo_00.o Demo_00.cpp
 </pre></code></div>
-    <p>or:</p>
+    
 
     <p>When you have found the proper path, and compilation completes successfully, you must give the linker a similar instruction. In this case, it must be able to find the directory in which the boost libraries are found, and, separately, the names of the boost libraries for which it is looking. The directory is specified using a "-L" switch, while the libraries are specified using "-l" (lower-case L). One confusing part: the library files are probably named something like "libMyLibrary.a" or "libMyLibrary.so", but the -l switch omits the 'lib' and the '.a' (or other extension), so it will look like "-lMyLibrary". For the two cases used so far, the linking command looks like:
 <div class="code"><code><pre>
-mpicxx -L/shared/ucl/apps/boost/1.54.0/openmpi/gnu.4.6.3/lib -o Demo_00.exe Demo_00.o -lboost_mpit -lboost_serialization -lboost_system -lboost_filesystem
+mpicxx -L/shared/ucl/apps/boost/1.54.0/openmpi/gnu.4.6.3/lib -o Demo_00.exe Demo_00.o -lboost_mpi -lboost_serialization -lboost_system -lboost_filesystem
 </pre></code></div>
    
 
