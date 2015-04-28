@@ -8,22 +8,22 @@
 MPICXX=mpicxx -std=c++11 
 
 BOOST_INCLUDE=
-#-I/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/boost/boost_1.54/include
+#-I/shared/ucl/apps/boost/1.54.0/openmpi/gnu.4.6.3/include
 BOOST_LIB_DIR=
-#-L/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/boost/boost_1.54/lib
+#-L/shared/ucl/apps/boost/1.54.0/openmpi/gnu.4.6.3/lib
 BOOST_LIBS=
-#-lboost_mpi-mt -lboost_serialization-mt -lboost_system-mt -lboost_filesystem-mt
+#-lboost_mpi -lboost_serialization -lboost_system -lboost_filesystem
 
 REPAST_HPC_INCLUDE=
-#-I/home/nick/Documents/repos/repast_hpc_for_course/out/rhpc/include
+#-I/shared/ucl/apps/repast-hpc/2.2-dev/include
 REPAST_HPC_LIB_DIR=
-#-L/home/nick/Documents/repos/repast_hpc_for_course/out/rhpc/lib
+#-L/shared/ucl/apps/repast-hpc/2.2-dev/
 REPAST_HPC_LIB=
 #-lrepast_hpc-2.2-dev -lrelogo-2.2-dev
 
 NETCDF_INCLUDE=
-#-I/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/NetCDF/include
+#-I/shared/ucl/apps/NetCDF/4.2.1.1-gnu.4.6.3/include -I/shared/ucl/apps/NetCDF-Cxx/4.2-gnu.4.6.3/include
 NETCDF_LIB_DIR=
-#-L/home/nick/Documents/repos/repast_hpc_for_course/dist/INSTALL/ext/NetCDF/lib
+#-L/shared/ucl/apps/NetCDF/4.2.1.1-gnu.4.6.3/lib -L/shared/ucl/apps/NetCDF-Cxx/4.2-gnu.4.6.3/lib
 NETCDF_LIB=
 #-lnetcdf -lnetcdf_c++
