@@ -40,4 +40,5 @@ module load repast-hpc/2.2-dev
 
 # 8. Run our MPI job.  GERun is a wrapper that launches MPI jobs on Legion  
 # This assumes the .props files have been copied to your working directory.
-gerun $2 $3 $4
+echo $1 $2 $3 $4
+gerun $3 $4 $5
