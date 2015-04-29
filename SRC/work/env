@@ -17,7 +17,7 @@ BOOST_LIBS=
 REPAST_HPC_INCLUDE=
 #-I/shared/ucl/apps/repast-hpc/2.2-dev/include
 REPAST_HPC_LIB_DIR=
-#-L/shared/ucl/apps/repast-hpc/2.2-dev/
+#-L/shared/ucl/apps/repast-hpc/2.2-dev/lib
 REPAST_HPC_LIB=
 #-lrepast_hpc-2.2-dev -lrelogo-2.2-dev
 
