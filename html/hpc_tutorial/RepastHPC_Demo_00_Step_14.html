@@ -18,7 +18,7 @@
     <p>Try running the code like this:</p>
     <div class="code"><code><pre>/usr/bin/local/mpirun -n 4 Demo_00.exe config.props model.props RunNumber=1 stop.at=6</pre></code></div>
     <p>Or:</p>
-    <div class="code"><code><pre>qsub -A MyProject -n 4 -cwd /pvfs-surveyor/ -o Demo_00 -t 10 ./Demo_00.exe config.props model.props RunNumber=1 stop.at=6</pre></code></div>
+    <div class="code"><code><pre>qsub submit.sh ./Demo_00.exe config.props model.props RunNumber=1 stop.at=6</pre></code></div>
     <p>With successive runs, increase the 'RunNumber' and change the 'stop.at' value. When the record.csv file is created, the header is added listing the property keys; each run adds its record, now uniquely identified with the 'RunNumber' and indicating the value used for 'stop.at'.</p>
     <script type="text/javascript">footer("RepastHPC_Demo_00_Step_14");</script>
   </body>

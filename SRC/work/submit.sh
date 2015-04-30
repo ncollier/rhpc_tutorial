@@ -40,4 +40,4 @@ module load boost/1.54.0/openmpi/gnu.4.6.3
 module load repast-hpc/2.2-dev
 
 # 8. Run our MPI job.  GERun is a wrapper that launches MPI jobs on Legion  
-gerun $1 $2 $3
+gerun $1 $2 $3 $4 $5

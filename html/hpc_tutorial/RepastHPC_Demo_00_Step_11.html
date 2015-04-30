@@ -61,13 +61,13 @@ int main(int argc, char** argv){
     <p>To use this, you must run the code with a second argument, in addition to the configuration file, like:</p>
     <div class="code"><code><pre>/usr/bin/local/mpirun -n 4 Demo_00.exe config.props model.props</pre></code></div>
     <p>Or:</p>
-    <div class="code"><code><pre>qsub -A MyProject -n 4 -cwd /pvfs-surveyor/ -o Demo_00 -t 10 ./Demo_00.exe config.props model.props</pre></code></div>
+    <div class="code"><code><pre>qsub submit.sh ./Demo_00.exe config.props model.props</pre></code></div>
     <p>An example properties file is included in the directory for this step; its contents are:</p>
 <div class="code"><code><pre>
 #Properties file
 stop.at = 2
 </pre></code></div>
-    <p>The first line (marked by a '#') is a comment. The second line contains the definition of the property 'stop.ap' and its value. Properties and values are separated by an '=' sign and whitespace.</p>
+    <p>The first line (marked by a '#') is a comment. The second line contains the definition of the property 'stop.at' and its value. Properties and values are separated by an '=' sign and whitespace.</p>
     <p>You can run this code with different values in the properties file; the code will run for different numbers of timesteps accordingly.</p>
     <script type="text/javascript">footer("RepastHPC_Demo_00_Step_11");</script>
   </body>
